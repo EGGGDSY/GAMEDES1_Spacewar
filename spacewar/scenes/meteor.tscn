@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ootererexgb"]
+
+[ext_resource type="Script" uid="uid://dln1npiof5w64" path="res://scripts/meteor.gd" id="1_pxso2"]
+[ext_resource type="Texture2D" uid="uid://kpkwb38jwcov" path="res://assets/meteor.png" id="1_xe5nn"]
+
+[node name="meteor01" type="Area2D"]
+script = ExtResource("1_pxso2")
+
+[node name="Meteor" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_xe5nn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(-4, -9.33333, -6.33333, -7, -7, -2.66667, -6.66667, 2.33333, -5.66667, 7.33333, -3, 7.66667, 2, 8.33333, 5, 7.66667, 6, 5.66667, 6.33333, 2.66667, 7, -0.666667, 7.66667, -2.33333, 5.33333, -6, 3.33333, -8, 0, -9.33333)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

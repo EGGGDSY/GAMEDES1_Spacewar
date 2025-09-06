@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://coahak0co1kcc"]
+
+[ext_resource type="PackedScene" uid="uid://ctiusdmvlpgf0" path="res://scenes/bg.tscn" id="1_mofoo"]
+[ext_resource type="Script" uid="uid://djdr4vu8xopwv" path="res://scripts/level_01.gd" id="1_nr3cb"]
+[ext_resource type="PackedScene" uid="uid://bpslqyp80ggkd" path="res://scenes/player.tscn" id="2_mofoo"]
+[ext_resource type="PackedScene" uid="uid://b1ootererexgb" path="res://scenes/meteor.tscn" id="3_mofoo"]
+
+[node name="level01" type="Node2D"]
+script = ExtResource("1_nr3cb")
+
+[node name="bg" parent="." instance=ExtResource("1_mofoo")]
+position = Vector2(0, 2)
+scale = Vector2(8, 8)
+
+[node name="player" parent="." instance=ExtResource("2_mofoo")]
+position = Vector2(397, 703)
+
+[node name="meteor" parent="." instance=ExtResource("3_mofoo")]
+position = Vector2(444, 403)
+
+[node name="meteorTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="meteorTimer" to="." method="_on_meteor_timer_timeout"]
